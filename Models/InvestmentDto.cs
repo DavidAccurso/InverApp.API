@@ -8,12 +8,12 @@
         public double BuyPriceUsd { get; set; }
         public string Asset { get; set; } = string.Empty;
         public DateTime Date { get; set; } = DateTime.Now;
-        public double Dividends { get; set; }
-        public int Duration { get; set; }
-        public double Expenses { get; set; }
-        public int investmentType { get; set; } = 1;
-        public double Nominals { get; set; }
-        public double Rate { get; set; }
-        public double UnitValue { get; set; }
+        public double? Dividends { get; set; } = 0;
+        public int? Duration { get; set; } = 0;
+        public double? Expenses { get; set; } = 0;
+        public InvestmentTypes investmentType { get; set; } = InvestmentTypes.Fixed;
+        public double Nominals { get; set; } = 0;
+        public double? Rate { get; set; } = 0;
+        public double UnitValue { get; set; } = 0;
     }
 }

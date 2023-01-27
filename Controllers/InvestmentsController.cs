@@ -18,12 +18,13 @@ namespace InversiApp.API.Controllers
         }
 
         [HttpPost]
-        [Produces("application/json")]
-
         public IActionResult InsertInvestment(InvestmentDto insertInvestment)
         {
-            //var investmentDto = JsonConvert.DeserializeObject<InvestmentDto>(insertInvestment);
-            var a = HttpContext.Request.ContentType;
+            
+            if (string.IsNullOrEmpty(insertInvestment.Asset))
+            {
+                return BadRequest("Please send the Asset name");
+            }
             var result = _investmentDomain.InsertInvestment(insertInvestment);
             return Ok(result);
         }

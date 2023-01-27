@@ -48,7 +48,8 @@ builder.Services.AddMemoryCache();
 
 var app = builder.Build();
 
-app.UsePreflightRequestHandler();
+//app.UsePreflightRequestHandler();
+app.UseMiddleware<RequestLoggingMiddleware>();
 
 app.UseCors(MyAllowSpecificOrigins);
 
