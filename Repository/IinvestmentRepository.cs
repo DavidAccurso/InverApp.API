@@ -6,7 +6,8 @@ namespace InversiApp.API.Repository
     {
         int InsertInvestment(Investment insertInvestment);
         IEnumerable<Investment> GetInvestments();
-        Investment GetInvestmentById(int id);
-        bool DeleteInvestment(int id);
+        Investment? GetInvestmentById(int id);
+        Task<bool> DeleteInvestment(int id);
+        Investment? UpdateInvestment(int id, Investment editedInvestment);
     }
 }

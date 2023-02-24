@@ -33,9 +33,16 @@ namespace InversiApp.API.Domain
             return mapper.Map<IEnumerable<Investment>, IEnumerable<InvestmentDto>>(result);
         }
 
-        public bool DeleteInvestment(int id)
+        public async Task<bool> DeleteInvestment(int id)
         {
-            return _repository.DeleteInvestment(id);
+            return await _repository.DeleteInvestment(id);
+        }
+
+        public InvestmentDto UpdateInvestment(int id, InvestmentDto editedInvestmentDto)
+        {
+            var editedInvestment = mapper.Map<InvestmentDto, Investment>(editedInvestmentDto);
+            var result = _repository.UpdateInvestment(id, editedInvestment);
+            return mapper.Map<Investment, InvestmentDto>(result);
         }
     }
 }

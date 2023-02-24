@@ -2,10 +2,8 @@
 
 namespace InversiApp.API.Models
 {
-    public class Investment
+    public class Investment : Base
     {
-        [Key]
-        public int ID { get; set; }
         public string Asset { get; set; } = string.Empty;
         public double UnitValue { get; set; }
         public double Nominals { get; set; }

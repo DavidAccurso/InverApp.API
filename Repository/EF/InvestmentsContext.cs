@@ -8,11 +8,5 @@ namespace InversiApp.API.Repository.EF
         public InvestmentsContext(DbContextOptions<InvestmentsContext> options) : base(options) { }
 
         public DbSet<Investment> Investments { get; set; }
-
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Fixed>().ToTable("FixedInvestments");
-        //    modelBuilder.Entity<Equitie>().ToTable("EquityInvestments");
-        //}
     }
 }

@@ -7,6 +7,7 @@ namespace InversiApp.API.Domain
         int InsertInvestment(InvestmentDto insertInvestment);
         IEnumerable<InvestmentDto> GetInvestments();
         InvestmentDto GetInvestmentById(int id);
-        bool DeleteInvestment(int id);
+        Task<bool> DeleteInvestment(int id);
+        InvestmentDto UpdateInvestment(int id, InvestmentDto editedInvestment);
     }
 }

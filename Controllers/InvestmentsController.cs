@@ -41,10 +41,16 @@ namespace InversiApp.API.Controllers
             return Ok(_investmentDomain.GetInvestmentById(id));
         }
 
-        [HttpDelete]
-        public IActionResult DeleteInvestment(int id)
+        [HttpDelete("DeleteInvestment/{id}")]
+        public async Task<IActionResult> DeleteInvestment(int id)
         {
-            return Ok(_investmentDomain.DeleteInvestment(id));
+            return Ok(await _investmentDomain.DeleteInvestment(id));
+        }
+
+        [HttpPut("UpdateInvestment/{id}")]
+        public IActionResult UpdateInvestment(int id, InvestmentDto editedInvestment)
+        {
+            return Ok(_investmentDomain.UpdateInvestment(id, editedInvestment));
         }
     }
 }
